@@ -1,116 +1,125 @@
-/* From Uiverse.io by micaelgomestavares */ 
+:root {
+    --primary-color: #00f2fe;
+    --primary-hover: #4facfe;
+    --bg-main: #0a0e17;
+    /* Patrón geométrico tecnológico */
+    --bg-pattern: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"%3E%3Cg fill=\'%231a2233\' fill-opacity="0.3"%3E%3Cpath d="M0 0h80v80H0V0zm1 1v78h78V1H1zm20 20v40h40V21H21zm1 1h38v38H22V22z"/%3E%3C/g%3E%3C/svg%3E');
+    --glass-bg: rgba(10, 14, 23, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --icon-color: #cbd5e1; /* Gris muy claro para visibilidad */
+}
+
+body {
+    background-color: var(--bg-main);
+    background-image: var(--bg-pattern);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+}
+
+/* Resplandor neón en el fondo */
+body::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 242, 254, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: -1;
+}
+
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background-color: #ffffff;
-  padding: 30px;
-  width: 450px;
-  border-radius: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    padding: 40px;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 28px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-::placeholder {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.logo-container { text-align: center; }
+
+.logo-placeholder {
+    width: 75px; height: 75px; margin: 0 auto 15px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed var(--glass-border);
+    border-radius: 18px;
+    color: var(--text-muted); font-size: 10px; font-weight: bold;
 }
 
-.form button {
-  align-self: flex-end;
-}
+.form-title { font-size: 26px; font-weight: 700; margin: 0; letter-spacing: -1px; }
+.form-subtitle { color: var(--text-muted); font-size: 14px; margin-top: 5px; }
 
-.flex-column > label {
-  color: #151717;
-  font-weight: 600;
-}
+.flex-column label { color: #e2e8f0; font-weight: 500; font-size: 13px; margin-bottom: 8px; display: block; }
 
 .inputForm {
-  border: 1.5px solid #ecedec;
-  border-radius: 10px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-  transition: 0.2s ease-in-out;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px; height: 54px;
+    display: flex; align-items: center; padding: 0 16px;
+    transition: 0.3s;
 }
+
+/* Efecto de foco tecnológico */
+.inputForm:focus-within {
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+}
+
+.inputForm svg { color: var(--icon-color); }
+.inputForm:focus-within svg { color: var(--primary-color); }
 
 .input {
-  margin-left: 10px;
-  border-radius: 10px;
-  border: none;
-  width: 85%;
-  height: 100%;
+    background: transparent; border: none; width: 100%; height: 100%;
+    outline: none; font-size: 15px; color: #fff; margin-left: 12px;
 }
 
-.input:focus {
-  outline: none;
-}
+.flex-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
 
-.inputForm:focus-within {
-  border: 1.5px solid #2d79f3;
-}
+.span-blue { color: var(--primary-color); text-decoration: none; font-weight: 600; transition: 0.3s; }
+.span-blue:hover { filter: brightness(1.2); }
 
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  justify-content: space-between;
+/* REGISTRO BLANCO RESALTADO */
+.span-white {
+    color: #ffffff; 
+    text-decoration: none; 
+    font-weight: 700; 
+    border-bottom: 1.5px solid rgba(255,255,255,0.4);
+    padding-bottom: 2px;
 }
+.span-white:hover { border-color: #fff; }
 
-.flex-row > div > label {
-  font-size: 14px;
-  color: black;
-  font-weight: 400;
-}
-
-.span {
-  font-size: 14px;
-  margin-left: 5px;
-  color: #2d79f3;
-  font-weight: 500;
-  cursor: pointer;
-}
+.p-center { text-align: center; font-size: 14px; color: #cbd5e1; }
 
 .button-submit {
-  margin: 20px 0 10px 0;
-  background-color: #151717;
-  border: none;
-  color: white;
-  font-size: 15px;
-  font-weight: 500;
-  border-radius: 10px;
-  height: 50px;
-  width: 100%;
-  cursor: pointer;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    border: none; color: #0a0e17; font-size: 16px; font-weight: 700;
+    border-radius: 14px; height: 55px; cursor: pointer; transition: 0.3s; margin-top: 10px;
 }
 
-.button-submit:hover {
-  background-color: #252727;
-}
+.button-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 242, 254, 0.4); }
 
-.p {
-  text-align: center;
-  color: black;
-  font-size: 14px;
-  margin: 5px 0;
-}
+.separator { display: flex; align-items: center; gap: 10px; margin: 10px 0; }
+.separator hr { flex: 1; border: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.separator span { color: #475569; font-size: 11px; font-weight: 600; letter-spacing: 1px; }
 
-.btn {
-  margin-top: 10px;
-  width: 100%;
-  height: 50px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 500;
-  gap: 10px;
-  border: 1px solid #ededef;
-  background-color: white;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
+.social-buttons { display: flex; gap: 12px; }
+.btn-social {
+    flex: 1; height: 50px; border-radius: 14px; border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.04); color: #fff;
+    display: flex; justify-content: center; align-items: center;
+    font-weight: 600; font-size: 14px; gap: 10px; cursor: pointer; transition: 0.3s;
 }
-
-.btn:hover {
-  border: 1px solid #2d79f3;
-}
+.btn-social:hover { background: rgba(255, 255, 255, 0.08); border-color: #fff; }

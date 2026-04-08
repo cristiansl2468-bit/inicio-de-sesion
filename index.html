@@ -3,71 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C-OZTH - Acceso Seguro</title>
+    <title>C-OZTH - Acceso Digital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<form class="form" action="login.php" method="POST">
-       <div class="logo-container">
-         <div class="logo-placeholder">
-          <img src="mi-logo.png" alt="Logo C-OZTH">
-       </div>
-        <h2 class="form-title">C-OZTH</h2>
-        <p class="form-subtitle">Acceso al Núcleo Digital</p>
-        </div>
+    <canvas id="matrixCanvas"></canvas>
 
-    <div class="flex-column">
-        <label>ID (Email)</label>
-        <div class="inputForm">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
-            <input type="email" name="email" class="input" placeholder="usuario@kukulcao.dev" required>
-        </div>
-    </div>
+    <main class="main-container">
+        <form class="form-card" action="login.php" method="POST">
+            <div class="header">
+                <div class="logo-container">
+                <img src="mi-logo.png" alt="Logo C-OZTH" class="main-logo">
+                </div>
+                <h2 class="title">C-OZTH</h2>
+                <p class="subtitle">Acceso al Núcleo Digital</p>
+            </div>
 
-    <div class="flex-column">
-        <label>Clave de Acceso</label>
-        <div class="inputForm">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-            <input type="password" name="password" id="password" class="input" placeholder="••••••••" required>
-            <svg id="togglePassword" style="cursor: pointer;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-        </div>
-    </div>
+            <div class="input-group">
+                <label>ID de Red (Email)</label>
+                <div class="input-box">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
+                    <input type="email" name="email" placeholder="usuario@gmail.com" required>
+                </div>
+            </div>
 
-    <div class="flex-row">
-        <label style="display:flex; align-items:center; gap:8px; cursor:pointer; color: #cbd5e1;">
-            <input type="checkbox" style="accent-color: #00f2fe;"> Dispositivo Autorizado
-        </label>
-        <a href="#" class="span-blue">Recuperar</a>
-    </div>
+            <div class="input-group">
+                <label>Clave de Acceso</label>
+                <div class="input-box">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <input type="password" name="password" id="password" placeholder="••••••••" required>
+                    <svg id="togglePassword" style="cursor: pointer;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                </div>
+            </div>
 
-    <button type="submit" class="button-submit">Autorizar Acceso</button>
+            <div class="form-options">
+                <label><input type="checkbox"> Dispositivo Autorizado</label>
+                <a href="#" class="link-neon">Recuperar</a>
+            </div>
 
-    <p class="p-center">
-        ¿Necesitas acceso? 
-        <a href="#" class="span-white">Registrar Plataforma</a>
-    </p>
+            <button type="submit" class="btn-primary">Autorizar Acceso</button>
+
+            <p class="footer-text">¿Necesitas acceso? <a href="#" class="link-white">Registrar Plataforma</a></p>
+            
+            <div class="separator"><span>Acceso Seguro SSO</span></div>
+
+            <div class="social-grid">
+               <button type="button" class="btn-social">
+                 <svg width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                 <span>Google</span>
+               </button>
     
-    <div class="separator">
-        <hr>
-        <span>Acceso Seguro SSO</span>
-        <hr>
-    </div>
+               <button type="button" class="btn-social">
+              <svg width="18" height="18" viewBox="0 0 384 512" fill="white"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+             <span>Apple</span>
+            </button>
+            </div>
+        </form>
+    </main>
 
-    <div class="social-buttons">
-        <button type="button" class="btn-social">
-            <img src="https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png" width="18"> Google
-        </button>
-        <button type="button" class="btn-social">
-            <svg width="18" height="18" viewBox="0 0 384 512" fill="white"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-            Apple
-        </button>
-    </div>
-</form>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
